@@ -57,13 +57,17 @@ const covid19ImpactEstimator = (data) => {
   let { timeToElapse } = data;
   timeToElapse = dayConverter(periodType, timeToElapse);
 
+  const factor = Math.floor(timeToElapse / 3);
+
   const impact = {};
   const severeImpact = {};
 
   // impact:{} the best case estimation
   // Challenge 1
   impact.currentlyInfected = reportedCases * 10;
-  impact.infectionsByRequestedTime = impact.currentlyInfected * 2 * (timeToElapse / 3);
+  const { currentlyInfected: lowCurrent } = impact;
+
+  impact.infectionsByRequestedTime = lowCurrent * (2 ** factor);
 
   // Challenge 2
   const { infectionsByRequestedTime: lowInfections } = impact;
@@ -80,7 +84,8 @@ const covid19ImpactEstimator = (data) => {
   // severImpact:{} the severe case estimation
   // Challenge 1
   severeImpact.currentlyInfected = reportedCases * 50;
-  severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 * (timeToElapse / 3);
+  const { currentlyInfected: highCurrent } = severeImpact;
+  severeImpact.infectionsByRequestedTime = highCurrent * (2 ** factor);
 
   // Challenge 2
   const { infectionsByRequestedTime: highInfections } = severeImpact;
