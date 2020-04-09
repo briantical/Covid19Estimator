@@ -21,7 +21,7 @@ const getSevereCases = (infectionsByRequestedTime) => {
 const getHpBeds = (totalHospitalBeds, severeCasesByRequestedTime) => {
   const percent = 35 / 100;
   const hospitalBedsByRequestedTime = (percent * totalHospitalBeds) - severeCasesByRequestedTime;
-  return hospitalBedsByRequestedTime;
+  return Math.trunc(hospitalBedsByRequestedTime);
 };
 
 // Estimate the number of severe +ve covid cases requiring ICU care
@@ -35,13 +35,13 @@ const getICUcases = (infectionsByRequestedTime) => {
 const getVentilatorcases = (infectionsByRequestedTime) => {
   const percent = 2 / 100;
   const casesForVentilatorsByRequestedTime = percent * infectionsByRequestedTime;
-  return casesForVentilatorsByRequestedTime;
+  return Math.trunc(casesForVentilatorsByRequestedTime);
 };
 
 // Estimate how much money the economy will lose over a given period
 const getDollarsFlight = (infectionsByRT, avgDailyIncomePop, avgDailyIncomeInUSD, timeToElapse) => {
   const dollarsInFlight = infectionsByRT * avgDailyIncomePop * avgDailyIncomeInUSD * timeToElapse;
-  return dollarsInFlight;
+  return Math.round(dollarsInFlight * 10) / 10;
 };
 
 const covid19ImpactEstimator = (data) => {
