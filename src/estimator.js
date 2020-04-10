@@ -40,7 +40,7 @@ const getVentilatorcases = (infectionsByRequestedTime) => {
 
 // Estimate how much money the economy will lose over a given period
 const getDollarsFlight = (infectionsByRT, avgDailyIncomePop, avgDailyIncomeInUSD, timeToElapse) => {
-  const dollarsInFlight = infectionsByRT * avgDailyIncomePop * avgDailyIncomeInUSD * timeToElapse;
+  const dollarsInFlight = (infectionsByRT * avgDailyIncomePop * avgDailyIncomeInUSD) / timeToElapse;
   return Math.round(dollarsInFlight * 100) / 100;
 };
 
