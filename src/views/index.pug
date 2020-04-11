@@ -2,64 +2,85 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="Description", content="A web application to provide a covid-19 impact estimator")
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css", integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" ,crossorigin="anonymous")
         link(rel="stylesheet", href="/static/styles/index.css")
-        title Covid-19 Estimator
+        title Covid-19 Estimator | Estimator
     body
-        .container_fluid
-            nav.navbar.navbar-light.bg-light
+        .container_fluid#application
+            nav.navbar.navbar-light#header
                 a.navbar-brand(href='#')
                     img.d-inline-block.align-top(src="/static/images/logo.png", alt="Covid-19 Estimator Logo", height="60", title="Covid-19 Estimator Logo")
             .row.no-gutters
-                section.about(title="About the Covid-19 Estimator")
-                    h3 About the Covid-19 Estimator
-                    p
-                       | This is a novelty estimator, which hopes to give your ideas of how
-                       | you can use technology , open source and research to attempt providing
-                       | advocacy nd advisory to any cause , including the COVID-19 pandemic.
-
-            .row.no-gutters
-                form(action="/", method="post")
-                    fieldset
-                        legend Regional Information
-                        table
-                            tbody
-                                tr
-                                    td: label(for="name") Region :
-                                    td: input.form-control#name(type="text", name="name", placeholder="Region (Africa)", required, autocomplete="off")
-                                tr
-                                    td: label(for="_avg_age") Average Age :
-                                    td: input.form-control#avgAge(type="text", name="avgAge", placeholder="19.7", required,autocomplete="off")
-                                tr
-                                    td: label(for="_avg_daily_income") Average Daily Income (USD) :
-                                    td: input.form-control#avgDailyIncomeInUSD(type="text", name="avgDailyIncomeInUSD", placeholder="5",required,autocomplete="off")
-                                tr
-                                    td: label(for="_avg_income_pop") Average Income Population :
-                                    td: input.form-control#avgDailyIncomePopulation(type="text", name="avgDailyIncomePopulation", placeholder="0.71",required,autocomplete="off")
-                                tr
-                                    td: label(for="population") Population :
-                                    td: input.form-control#population(type="number", name="population", required,autocomplete="off",data-population)
-                    fieldset
-                        legend Estimation Period
-                        table
-                            tbody
-                                tr
-                                    td: label(for="periodType") Period Type :
-                                    td: select.form-control#period_type(name="periodType", data-period-type)
-                                        option(value="days", selected) Days
-                                        option(value="weeks") Weeks
-                                        option(value="months") Months
-                                tr
-                                    td: label(for="timeToElapse") Period :
-                                    td: input.form-control#timeToElapse(type="number", name="timeToElapse", placeholder="30",required,autocomplete="off",data-time-to-elapse)                      
-                    fieldset
-                        legend Infection Data
-                        table
-                            tbody
-                                tr
-                                    td: label(for="reportedCases") Reported cases :
-                                    td: input.form-control#reportedCases(type="number", name="reportedCases", placeholder="0", required,autocomplete="off",data-reported-cases)
-                                tr
-                                    td: label(for="totalHospitalBeds") Hospital beds :
-                                    td: input.form-control#totalHospitalBeds(type="number", name="totalHospitalBeds", placeholder="0", required,autocomplete="off",data-total-hospital-beds)
-                    button.btn.btn-primary.btn-lg.btn-block#btn_estimator(type="submit", data-go-estimate) Run Estimator
+                .row.no-gutters
+                    section.about(title="About the Covid-19 Estimator")
+                        h3 About the Covid-19 Estimator
+                        p
+                            | This is a novelty estimator, which hopes to give your ideas of how
+                            | you can use technology , open source and research to attempt providing
+                            | advocacy and advisory to any cause , including the COVID-19 pandemic.
+                .row.no-gutters
+                    .col-sm-5
+                        section.instructions(title="How to use the Estimator")
+                            h5 How to use the Covid-19 Estimator
+                            p
+                                | Regional Information
+                                ul
+                                    li Region name should one of the continents.
+                                    li Average age on the continent.
+                                    li Average daily income in USDs.
+                                    li Average income population like 0.71 representing 70%.
+                                    li Continental human population.
+                                | Estimation Period
+                                ul
+                                    li Period Type can be days, weeks or months.
+                                    li Time to lapse is numeric
+                                | Infection Data
+                                ul 
+                                    li These are numeric figures partaining to regional infection rates.
+                    .col-sm-7
+                        form.commons_vertical(action="/", method="post", title="The Covid-19 Estimator")
+                            fieldset
+                                legend Regional Information
+                                table
+                                    tbody
+                                        tr
+                                            td: label(for="name") Region :
+                                            td: input.form-control#name(type="text", name="name", placeholder="...(Africa)", required, autocomplete="off")
+                                        tr
+                                            td: label(for="avgAge") Average Age :
+                                            td: input.form-control#avgAge(type="text", name="avgAge", placeholder="19.7", required,autocomplete="off")
+                                        tr
+                                            td: label(for="avgDailyIncomeInUSD") Average Daily Income (USD) :
+                                            td: input.form-control#avgDailyIncomeInUSD(type="text", name="avgDailyIncomeInUSD", placeholder="5",required,autocomplete="off")
+                                        tr
+                                            td: label(for="avgDailyIncomePopulation") Average Income Population :
+                                            td: input.form-control#avgDailyIncomePopulation(type="text", name="avgDailyIncomePopulation", placeholder="0.71 for 71%",required,autocomplete="off", maxlength=3)
+                                        tr
+                                            td: label(for="population") Population :
+                                            td: input.form-control#population(type="number", name="population", required,autocomplete="off",data-population)
+                            fieldset
+                                legend Estimation Period
+                                table
+                                    tbody
+                                        tr
+                                            td: label(for="periodType") Period Type :
+                                            td: select.form-control#periodType(name="periodType", data-period-type)
+                                                option(value="days", selected) Days
+                                                option(value="weeks") Weeks
+                                                option(value="months") Months
+                                        tr
+                                            td: label(for="timeToElapse") Period :
+                                            td: input.form-control#timeToElapse(type="number", name="timeToElapse", placeholder="30",required,autocomplete="off",data-time-to-elapse)                      
+                            fieldset
+                                legend Infection Data
+                                table
+                                    tbody
+                                        tr
+                                            td: label(for="reportedCases") Reported cases :
+                                            td: input.form-control#reportedCases(type="number", name="reportedCases", placeholder="0", required,autocomplete="off",data-reported-cases)
+                                        tr
+                                            td: label(for="totalHospitalBeds") Hospital beds :
+                                            td: input.form-control#totalHospitalBeds(type="number", name="totalHospitalBeds", placeholder="0", required,autocomplete="off",data-total-hospital-beds)
+                            button.btn.btn-primary.btn-lg.btn-block#btn_estimator(type="submit", data-go-estimate) Run Estimator
+            img.img-fluid#sdg_logo(src="/static/images/SDGs.png", alt="SDG Wheel Print", title="SDG Wheel print")

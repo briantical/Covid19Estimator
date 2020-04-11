@@ -1,9 +1,37 @@
+#sdg_logo{
+    z-index: 1;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    height: 4rem;
+    position: fixed;
+}
+
+.commons_vertical{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#header{
+    background-color: rgb(255,255,255);
+}
+#application{
+    background-color: rgb(245,249,254);
+}
+
+label{
+    color: rgb(0,33,59);
+    font-size: small;
+    font-weight: 700;
+}
+
 table{
     border-collapse: collapse;
     border-spacing: 0 15px;
 }
 td {
     width: 20rem;
+    padding: 0.3rem 0rem;
 }
 
 #btn_estimator {
@@ -16,14 +44,27 @@ form {
     margin: 1rem;
 }
 
+.instructions{
+    margin: 0rem 1rem;
+}
+
 .about{
-    padding: 1rem;
+    padding: 0.5rem;
 }
 .about p{
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.2 rem;
     border-bottom: 1px solid grey;
 }
 
 fieldset{
     margin-bottom: 1rem;
+}
+
+section p, ul li{
+    font-size: small;
+}
+
+form{
+    border: 0.1rem solid grey;
+    padding: 0.5rem;
 }
