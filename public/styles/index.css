@@ -1,0 +1,29 @@
+table{
+    border-collapse: collapse;
+    border-spacing: 0 15px;
+}
+td {
+    width: 20rem;
+}
+
+#btn_estimator {
+    margin: 0.5rem 0rem;
+    background-color: rgb(206,0,5);
+    border: 0.3rem solid rgb(206,0,5);
+}
+
+form {
+    margin: 1rem;
+}
+
+.about{
+    padding: 1rem;
+}
+.about p{
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid grey;
+}
+
+fieldset{
+    margin-bottom: 1rem;
+}
