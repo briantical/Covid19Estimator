@@ -27,7 +27,7 @@ td {
 }
 
 #btn_estimator {
-    margin: 0.5rem 0rem;
+    margin: 8px;
     background-color: rgb(206,0,5);
     border: 0.3rem solid rgb(206,0,5);
 }
