@@ -28,6 +28,8 @@ td {
 
 #btn_estimator {
     margin: 8px;
+    width: 48px;
+    height: 48px;
     background-color: rgb(206,0,5);
     border: 0.3rem solid rgb(206,0,5);
 }
