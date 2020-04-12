@@ -27,12 +27,12 @@ serverroutes.get('/:format?', (req, res) => {
     case 'json':
       res.set('Content-Type', 'application/json');
       res.json(covid19ImpactEstimator(data));
-      logger.info(`GET\t\t/api/v1/on-covid-19/json\t\t200\t\t${res.get('X-Response-Time')}`);
+      logger.info(`GET\t\t/api/v1/on-covid-19/json\t\tdone in ${res.get('X-Response-Time')}`);
       break;
     case 'xml':
       res.set('Content-Type', 'application/xml');
       res.send(xmlOutput);
-      logger.info(`GET\t\t/api/v1/on-covid-19/xml \t\t200\t\t${res.get('X-Response-Time')}`);
+      logger.info(`GET\t\t/api/v1/on-covid-19/xml \t\tdone in ${res.get('X-Response-Time')}`);
       break;
     case 'logs':
       res.set('Content-Type', 'text/plain');
@@ -41,7 +41,7 @@ serverroutes.get('/:format?', (req, res) => {
     default:
       res.set('Content-Type', 'application/json');
       res.json(covid19ImpactEstimator(data));
-      logger.info(`GET\t\t/api/v1/on-covid-19/    \t\t200\t\t${res.get('X-Response-Time')}`);
+      logger.info(`GET\t\t/api/v1/on-covid-19/    \t\tdone in ${res.get('X-Response-Time')}`);
       break;
   }
 });
