@@ -19,13 +19,13 @@ logger.setLevel('info');
 serverroutes.get('/:format?', (req, res) => {
   const { format } = req.params;
 
-  const output = covid19ImpactEstimator(req.body);
+  const data = req.body;
   const builder = new xml2js.Builder();
-  const xmlOutput = builder.buildObject(output);
+  const xmlOutput = builder.buildObject(covid19ImpactEstimator(data));
 
   switch (format) {
     case 'json':
-      res.json({ output });
+      res.json(covid19ImpactEstimator(data));
       logger.info(`GET\t\t/api/v1/on-covid-19/json\t\t200\t\t${res.get('X-Response-Time')}`);
       break;
     case 'xml':
@@ -38,7 +38,7 @@ serverroutes.get('/:format?', (req, res) => {
       res.sendFile(path.join(__dirname, './logs.log'));
       break;
     default:
-      res.json({ output });
+      res.json(covid19ImpactEstimator(data));
       logger.info(`GET\t\t/api/v1/on-covid-19/    \t\t200\t\t${res.get('X-Response-Time')}`);
       break;
   }
