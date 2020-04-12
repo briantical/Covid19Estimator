@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="A web application to provide a covid-19 impact estimator">
+    <link rel="stylesheet" href="./index.css" disabled media="screen">
+    <style>
+        td{
+            width: 20rem;
+        }
+        input{
+            height: 2rem;
+            width: 10rem;
+        }
+        nav{
+            background-color: white;
+        }
+        .content{
+            background-color: lightgrey;
+        }
+    </style>
+    <title>Covid-19 Estimator | Estimator</title>
+</head>
+
+<body>
+    <div class="container_fluid" id="application">
+        <nav class="navbar navbar-light" id="header"><a class="navbar-brand" href="#"><img class="d-inline-block align-top img-fluid" src="./logo.png" alt="Covid-19 Estimator Logo" title="Covid-19 Estimator Logo"></a></nav>
+        <div class="row no-gutters content">
+            <div class="row no-gutters">
+                <section class="about" title="About the Covid-19 Estimator">
+                    <h3>About the Covid-19 Estimator</h3>
+                    <p>This is a novelty estimator, which hopes to give your ideas of how you can use technology , open source and research to attempt providing advocacy and advisory to any cause , including the COVID-19 pandemic.</p>
+                </section>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-sm-5">
+                    <section class="instructions" title="How to use the Estimator">
+                        <h5>How to use the Covid-19 Estimator</h5>
+                        <p>Regional Information
+                            <ul>
+                                <li>Region name should one of the continents.</li>
+                                <li>Average age on the continent.</li>
+                                <li>Average daily income in USDs.</li>
+                                <li>Average income population like 0.71 representing 70%.</li>
+                                <li>Continental human population.</li>
+                            </ul>Estimation Period
+                            <ul>
+                                <li>Period Type can be days, weeks or months.</li>
+                                <li>Time to lapse is numeric</li>
+                            </ul>Infection Data
+                            <ul>
+                                <li>These are numeric figures partaining to regional infection rates.</li>
+                            </ul>
+                        </p>
+                    </section>
+                </div>
+                <div class="col-sm-7">
+                    <form class="commons_vertical" action="/" method="post" title="The Covid-19 Estimator">
+                        <fieldset>
+                            <legend>Regional Information</legend>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><label for="name">Region :</label></td>
+                                        <td><input class="form-control" id="name" type="text" name="name" placeholder="...(Africa)" required autocomplete="off"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="avgAge">Average Age :</label></td>
+                                        <td><input class="form-control" id="avgAge" type="text" name="avgAge" placeholder="19.7" required autocomplete="off"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="avgDailyIncomeInUSD">Average Daily Income (USD) :</label></td>
+                                        <td><input class="form-control" id="avgDailyIncomeInUSD" type="text" name="avgDailyIncomeInUSD" placeholder="5" required autocomplete="off"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="avgDailyIncomePopulation">Average Income Population :</label></td>
+                                        <td><input class="form-control" id="avgDailyIncomePopulation" type="text" name="avgDailyIncomePopulation" placeholder="0.71 for 71%" required autocomplete="off"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="population">Population :</label></td>
+                                        <td><input class="form-control" id="population" type="number" name="population" required autocomplete="off" data-population></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Estimation Period</legend>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><label for="periodType">Period Type :</label></td>
+                                        <td><select class="form-control" id="periodType" name="periodType" data-period-type><option value="days" selected>Days</option><option value="weeks">Weeks</option><option value="months">Months</option></select></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="timeToElapse">Period :</label></td>
+                                        <td><input class="form-control" id="timeToElapse" type="number" name="timeToElapse" placeholder="30" required autocomplete="off" data-time-to-elapse></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Infection Data</legend>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><label for="reportedCases">Reported cases :</label></td>
+                                        <td><input class="form-control" id="reportedCases" type="number" name="reportedCases" placeholder="0" required autocomplete="off" data-reported-cases></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="totalHospitalBeds">Hospital beds :</label></td>
+                                        <td><input class="form-control" id="totalHospitalBeds" type="number" name="totalHospitalBeds" placeholder="0" required autocomplete="off" data-total-hospital-beds></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset><button class="btn btn-primary btn-lg btn-block" id="btn_estimator" type="submit" data-go-estimate style="height: 60px; width:80px; margin: 8px;">Run Estimator</button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
