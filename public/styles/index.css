@@ -26,14 +26,6 @@ td {
     padding: 0.3rem 0rem;
 }
 
-#btn_estimator {
-    margin: 8px;
-    width: 48px;
-    height: 48px;
-    background-color: rgb(206,0,5);
-    border: 0.3rem solid rgb(206,0,5);
-}
-
 form {
     margin: 1rem;
 }
