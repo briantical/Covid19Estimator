@@ -39,7 +39,7 @@ html(lang="en")
                                 ul 
                                     li These are numeric figures partaining to regional infection rates.
                     .col-sm-7
-                        form.commons_vertical(action="/", method="post", title="The Covid-19 Estimator")
+                        form.commons_vertical(action="/client", method="post", title="The Covid-19 Estimator")
                             fieldset
                                 legend Regional Information
                                 table
@@ -55,7 +55,7 @@ html(lang="en")
                                             td: input.form-control#avgDailyIncomeInUSD(type="text", name="avgDailyIncomeInUSD", placeholder="5",required,autocomplete="off")
                                         tr
                                             td: label(for="avgDailyIncomePopulation") Average Income Population :
-                                            td: input.form-control#avgDailyIncomePopulation(type="text", name="avgDailyIncomePopulation", placeholder="0.71 for 71%",required,autocomplete="off", maxlength=3)
+                                            td: input.form-control#avgDailyIncomePopulation(type="text", name="avgDailyIncomePopulation", placeholder="0.71 for 71%",required,autocomplete="off", maxlength=4)
                                         tr
                                             td: label(for="population") Population :
                                             td: input.form-control#population(type="number", name="population", required,autocomplete="off",data-population)

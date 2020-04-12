@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
-const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const api = require('./routes');
 
@@ -17,6 +17,6 @@ app.set('views', path.join(__dirname, '/views'));
 // Access the public folder via static route
 app.use('/static', express.static(path.join(__dirname, './../public')));
 
-app.use('/.netlify/functions/index', api);
+app.use('/', api);
 
-module.exports.handler = serverless(app);
+app.listen(process.env.PORT, () => console.log(`Server is now listening ${process.env.PORT}`));
