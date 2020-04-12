@@ -25,6 +25,7 @@ serverroutes.get('/:format?', (req, res) => {
 
   switch (format) {
     case 'json':
+      res.set('Content-Type', 'application/json');
       res.json(covid19ImpactEstimator(data));
       logger.info(`GET\t\t/api/v1/on-covid-19/json\t\t200\t\t${res.get('X-Response-Time')}`);
       break;
@@ -38,6 +39,7 @@ serverroutes.get('/:format?', (req, res) => {
       res.sendFile(path.join(__dirname, './logs.log'));
       break;
     default:
+      res.set('Content-Type', 'application/json');
       res.json(covid19ImpactEstimator(data));
       logger.info(`GET\t\t/api/v1/on-covid-19/    \t\t200\t\t${res.get('X-Response-Time')}`);
       break;
