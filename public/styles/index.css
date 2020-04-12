@@ -1,11 +1,3 @@
-#sdg_logo{
-    z-index: 1;
-    right: 0.5rem;
-    bottom: 0.5rem;
-    height: 4rem;
-    position: fixed;
-}
-
 .commons_vertical{
     display: flex;
     flex-direction: column;
