@@ -16,7 +16,7 @@ logger.setLevel('info');
 
 // Define the server routes with an optional paramter 'format'
 // You make paramters optional by adding the '?' after the paramter definition
-serverroutes.get('/:format?', (req, res) => {
+serverroutes.post('/:format?', (req, res) => {
   const { format } = req.params;
 
   const data = req.body;
