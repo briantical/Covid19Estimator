@@ -1,15 +1,17 @@
-// const fs = require('fs');
 const path = require('path');
 const xml2js = require('xml2js');
 const { Router } = require('express');
 const responseTime = require('response-time');
 
-const logger = require('../logger');
+// Lambda only allows you to write to the /tmp directory.
+const logger = require('simple-node-logger').createSimpleLogger('/tmp/covid.log');
+
 const covid19ImpactEstimator = require('../estimator');
 
 const serverroutes = Router();
 
 serverroutes.use(responseTime());
+logger.setLevel('info');
 
 
 // Define the server routes with an optional paramter 'format'
@@ -33,7 +35,7 @@ serverroutes.get('/:format?', (req, res) => {
       break;
     case 'logs':
       res.set('Content-Type', 'text/plain');
-      res.sendFile(path.join(__dirname, './logs.log'));
+      res.sendFile(path.join(__dirname, '/tmp/covid.log'));
       break;
     default:
       res.json({ output });

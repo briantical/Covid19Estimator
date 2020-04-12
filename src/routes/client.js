@@ -1,18 +1,12 @@
 const { Router } = require('express');
-const serverroutes = require('./server');
-const clientroutes = require('./client');
 const covid19ImpactEstimator = require('../estimator');
 
-const router = Router();
+const clientroutes = Router();
 
-router.use('/api/v1/on-covid-19/', serverroutes);
-
-router.use('/client', clientroutes);
-
-router.get('/', (req, res) => res.render('index'));
+clientroutes.get('/', (req, res) => res.render('index'));
 
 // Generate the estimate on submit form
-router.post('/', (req, res) => {
+clientroutes.post('/', (req, res) => {
   const {
     name, avgAge, avgDailyIncomeInUSD, avgDailyIncomePopulation
   } = req.body;
@@ -32,4 +26,4 @@ router.post('/', (req, res) => {
   res.render('estimate', { estimate });
 });
 
-module.exports = router;
+module.exports = clientroutes;

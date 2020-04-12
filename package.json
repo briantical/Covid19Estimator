@@ -7,9 +7,11 @@
   "private": false,
   "scripts": {
     "lint": "eslint ./src/",
-    "start": "node ./src/index.js",
+    "start1": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
-    "build": "netlify-lambda build src"
+    "build": "netlify-lambda build src",
+    "start": "netlify-lambda serve src",
+    "postinstall": "netlify-lambda install"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
