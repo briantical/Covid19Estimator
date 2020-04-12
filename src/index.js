@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
-require('pug');
+// require('pug');
 // const servefavicon = require('serve-favicon');
 
 // const logger = require('./logger');
