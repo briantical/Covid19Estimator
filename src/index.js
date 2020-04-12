@@ -19,4 +19,4 @@ app.use('/static', express.static(path.join(__dirname, './../public')));
 
 app.use('/', api);
 
-app.listen(process.env.PORT, () => console.log(`Server is now listening ${process.env.PORT}`));
+app.listen(process.env.PORT);
