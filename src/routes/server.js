@@ -29,7 +29,7 @@ serverroutes.get('/:format?', (req, res) => {
       logger.info(`GET\t\t/api/v1/on-covid-19/json\t\t200\t\t${res.get('X-Response-Time')}`);
       break;
     case 'xml':
-      res.set('Content-Type', 'text/xml');
+      res.set('Content-Type', 'application/xml');
       res.send(xmlOutput);
       logger.info(`GET\t\t/api/v1/on-covid-19/xml \t\t200\t\t${res.get('X-Response-Time')}`);
       break;
