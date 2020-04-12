@@ -68,3 +68,7 @@ form{
     border: 0.1rem solid grey;
     padding: 0.5rem;
 }
+
+.col-sm{
+    margin: 0.3rem
+}
