@@ -21,10 +21,6 @@ table{
     border-collapse: collapse;
     border-spacing: 0 15px;
 }
-td {
-    width: 20rem;
-    padding: 0.3rem 0rem;
-}
 
 form {
     margin: 1rem;
@@ -59,8 +55,9 @@ form{
     margin: 0.3rem
 }
 
-td{
-    width: 15rem;
+td {
+    width: 20rem;
+    padding: 0.3rem 0rem;
 }
 
 body {
