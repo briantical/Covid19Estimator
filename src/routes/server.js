@@ -25,14 +25,14 @@ serverroutes.post('/', (req, res) => {
   const data = req.body;
   res.set('Content-Type', 'application/json');
   res.json(covid19ImpactEstimator(data));
-  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/    \t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2)} seconds`);
+  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/    \t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2).padStart(2, 0)}ms`);
 });
 
 serverroutes.post('/json', (req, res) => {
   const data = req.body;
   res.set('Content-Type', 'application/json');
   res.json(covid19ImpactEstimator(data));
-  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/json\t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2)} seconds`);
+  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/json\t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2).padStart(2, 0)}ms`);
 });
 
 serverroutes.post('/xml', (req, res) => {
@@ -42,7 +42,7 @@ serverroutes.post('/xml', (req, res) => {
 
   res.set('Content-Type', 'application/xml');
   res.send(xmlOutput);
-  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/xml \t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2)} seconds`);
+  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/xml \t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2).padStart(2, 0)}ms`);
 });
 
 serverroutes.get('/logs', (req, res) => {
