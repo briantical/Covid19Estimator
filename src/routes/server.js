@@ -9,7 +9,7 @@ const logger = require('simple-node-logger').createSimpleLogger(path.join(__dirn
 const covid19ImpactEstimator = require('../estimator');
 
 const serverroutes = Router();
-serverroutes.use(responseTime());
+serverroutes.use(responseTime({ suffix: false }));
 
 logger.setLevel('info');
 
@@ -50,14 +50,14 @@ serverroutes.post('/', (req, res) => {
   const data = req.body;
   res.set('Content-Type', 'application/json');
   res.json(covid19ImpactEstimator(data));
-  logger.info(`GET\t\t/api/v1/on-covid-19/    \t\tdone in ${res.get('X-Response-Time')}`);
+  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/    \t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2)} seconds`);
 });
 
 serverroutes.post('/json', (req, res) => {
   const data = req.body;
   res.set('Content-Type', 'application/json');
   res.json(covid19ImpactEstimator(data));
-  logger.info(`GET\t\t/api/v1/on-covid-19/json\t\tdone in ${res.get('X-Response-Time')}`);
+  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/json\t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2)} seconds`);
 });
 
 serverroutes.post('/xml', (req, res) => {
@@ -67,7 +67,7 @@ serverroutes.post('/xml', (req, res) => {
 
   res.set('Content-Type', 'application/xml');
   res.send(xmlOutput);
-  logger.info(`GET\t\t/api/v1/on-covid-19/xml \t\tdone in ${res.get('X-Response-Time')}`);
+  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/xml \t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2)} seconds`);
 });
 
 serverroutes.get('/logs', (req, res) => {
