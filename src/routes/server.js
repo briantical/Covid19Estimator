@@ -12,7 +12,7 @@ const logger = winston.createLogger({
   level: 'info',
   format: winston.format.printf((info) => `${info.message}`),
   transports: [
-    new winston.transports.File({ filename: path.join(__dirname, './logs.log') })
+    new winston.transports.File({ filename: path.join(__dirname, './logs.log'), options: { flags: 'w' } })
   ]
 });
 
