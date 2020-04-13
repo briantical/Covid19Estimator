@@ -12,7 +12,7 @@ const logger = winston.createLogger({
   level: 'info',
   format: winston.format.printf((info) => `${info.message}`),
   transports: [
-    new winston.transports.File({ filename: path.join(__dirname, './logs.log'), options: { flags: 'w' } })
+    new winston.transports.File({ filename: path.join(__dirname, './logs.txt'), options: { flags: 'w' } })
   ]
 });
 
@@ -25,14 +25,14 @@ serverroutes.post('/', (req, res) => {
   const data = req.body;
   res.set('Content-Type', 'application/json');
   res.json(covid19ImpactEstimator(data));
-  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/    \t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2).padStart(2, 0)}ms`);
+  logger.info(`POST\t\t/api/v1/on-covid-19/    \t\t200\t\t${Math.trunc(res.get('X-Response-Time')).toString().padStart(2, 0)}ms`);
 });
 
 serverroutes.post('/json', (req, res) => {
   const data = req.body;
   res.set('Content-Type', 'application/json');
   res.json(covid19ImpactEstimator(data));
-  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/json\t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2).padStart(2, 0)}ms`);
+  logger.info(`POST\t\t/api/v1/on-covid-19/json\t\t200\t\t${Math.trunc(res.get('X-Response-Time')).toString().padStart(2, 0)}ms`);
 });
 
 serverroutes.post('/xml', (req, res) => {
@@ -42,12 +42,13 @@ serverroutes.post('/xml', (req, res) => {
 
   res.set('Content-Type', 'application/xml');
   res.send(xmlOutput);
-  logger.info(`${Date.now()}\t\t/api/v1/on-covid-19/xml \t\tdone in ${((parseFloat(res.get('X-Response-Time'))) / 1000).toFixed(2).padStart(2, 0)}ms`);
+  logger.info(`POST\t\t/api/v1/on-covid-19/xml \t\t200\t\t${Math.trunc(res.get('X-Response-Time')).toString().padStart(2, 0)}ms`);
 });
 
 serverroutes.get('/logs', (req, res) => {
   res.set('Content-Type', 'text/plain');
-  res.sendFile(path.join(__dirname, './logs.log'));
+  res.sendFile(path.join(__dirname, './logs.txt'));
+  logger.info(`GET \t\t/api/v1/on-covid-19/logs\t\t200\t\t${Math.trunc(res.get('X-Response-Time')).toString().padStart(2, 0)}ms`);
 });
 
 module.exports = serverroutes;
