@@ -70,7 +70,7 @@ serverroutes.post('/xml', (req, res) => {
   logger.info(`GET\t\t/api/v1/on-covid-19/xml \t\tdone in ${res.get('X-Response-Time')}`);
 });
 
-serverroutes.post('/logs', (req, res) => {
+serverroutes.get('/logs', (req, res) => {
   res.set('Content-Type', 'text/plain');
   res.sendFile(path.join(__dirname, './logs.log'));
 });
