@@ -50,7 +50,7 @@ serverroutes.post('/', (req, res) => {
   const data = req.body;
   res.set('Content-Type', 'application/json');
   res.json(covid19ImpactEstimator(data));
-  logger.info(`GET\t\t/api/v1/on-covid-19/json\t\tdone in ${res.get('X-Response-Time')}`);
+  logger.info(`GET\t\t/api/v1/on-covid-19/    \t\tdone in ${res.get('X-Response-Time')}`);
 });
 
 serverroutes.post('/json', (req, res) => {
